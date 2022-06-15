@@ -13,8 +13,6 @@ class Solution {
             else return res*res/x;
         }
       
-
-        
         /*brute O(n)
         double ans = 1.0;
         int m=Math.abs(n);
