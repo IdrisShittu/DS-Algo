@@ -27,13 +27,10 @@ class Solution {
            int i;
            for( i=nums1.length-1; !(m<0||n<0);  ){
                if(nums1[m]>=nums2[n]){
-                   nums1[i]=nums1[m--];
-                   i--;
+                   nums1[i--]=nums1[m--];
                }
                else {
-                   nums1[i]=nums2[n--];
-                   i--;
-                   
+                   nums1[i--]=nums2[n--];
                }
            }
         
@@ -42,7 +39,8 @@ class Solution {
                nums1[j]=nums2[n--]; 
                return;
            }
-           if(n<0)for(int j=i; j>=0; j--)nums1[j]=nums1[m--]; 
+           
+           //if n<0 means already sorted
         
           
             
