@@ -19,7 +19,7 @@ class Solution {
         }
 
         for(int i=0; i<matches.length; i++){
-            if (mp.getOrDefault(matches[i][1], 0) == 1 && !fr.contains(matches[i][1])) {
+            if (mp.getOrDefault(matches[i][1], 0) == 1 ) {
                 sc.add(matches[i][1]);
             }
         }
