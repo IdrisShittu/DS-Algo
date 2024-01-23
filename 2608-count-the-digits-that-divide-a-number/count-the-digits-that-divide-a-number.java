@@ -5,7 +5,7 @@ class Solution {
         for(int i=0; i<val.length(); i++){
 
       
-            if(num%((int)val.charAt(i)-'0')==0)count++;
+            if(num%(val.charAt(i)-'0')==0)count++;
         }
         return count;
     }
