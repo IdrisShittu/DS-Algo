@@ -1,12 +1,11 @@
 class Solution {
     public int subtractProductAndSum(int n) {
-        int product=1, sum=0, j=1;
-        String num = Integer.toString(n);
-        for(int i=0; i<num.length();i++){
-           j = Character.getNumericValue(num.charAt(i));
-           product*=j;
-           sum+=j;
-        }
-        return product-sum;   
+       int product=1,sum=0,j=0;
+       while(n>0){
+           product*=n%10;
+           sum+=n%10;
+           n/=10;
+       }  
+       return product-sum;
     }
 }
