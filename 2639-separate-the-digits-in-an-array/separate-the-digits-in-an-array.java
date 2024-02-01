@@ -1,16 +1,16 @@
 class Solution {
     public int[] separateDigits(int[] nums) {
         int[] result=new int[10000];
-        int j=0;
+        int j=0,divider;
         for(int i:nums){
-            int l=Integer.toString(i).length();
-            int k=l-1;
+            divider=10;
+            divider=(int)Math.pow(divider,Integer.toString(i).length()-1);
             while(i>0){
-                result[j+k]=i%10;
-                i/=10;
-                k--;
+                if(divider==0)break;
+                result[j++]=(i/divider)%10;
+                divider/=10;
             }
-            j+=l;
+            
         }
         return Arrays.copyOfRange(result,0,j);
     }
