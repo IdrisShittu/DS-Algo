@@ -1,10 +1,11 @@
+import java.util.regex.*;
 class Solution {
     public int maximumValue(String[] strs) {
        int max=0;
        boolean areAllDigits=true;
        for(String s : strs){
          for(int i=0;i<s.length();i++){
-             if(!Character.isDigit(s.charAt(i))){
+             if(!Pattern.compile("[0-9]+").matcher(s).matches()){
                  areAllDigits=false;
                  break; 
              }
