@@ -11,7 +11,6 @@ class Solution {
          }  
          max = (areAllDigits)?Math.max(max,Integer.parseInt(s)):Math.max(max,s.length());
          areAllDigits=true;
-         System.out.println(max+" "+areAllDigits);
        } 
        return max;
     }
