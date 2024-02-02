@@ -1,11 +1,8 @@
+import java.util.regex.*;
 class Solution {
     public int lengthOfLastWord(String s) {
-        int len=0; Boolean letterNotSeen=true;
-        for(int i=s.length()-1;i>=0;i--){
-            if(letterNotSeen && Character.isLetter(s.charAt(i)))letterNotSeen=false;
-            if(!letterNotSeen && Character.isLetter(s.charAt(i)))len++;
-            if(!letterNotSeen && !Character.isLetter(s.charAt(i)))break;  
-         }
-        return len;
+        Matcher matcher = Pattern.compile("(\\S+)\\s*$").matcher(s);
+        if (matcher.find()) return matcher.group(1).length();
+        return -1;
     }
 }
