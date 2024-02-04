@@ -4,7 +4,7 @@ class Solution {
        //  System.out.println(num+"-"+k);
         Stack<Character> stck = new Stack<>();
         int popCount=0,i,size;
-        if(num.length()==1)return "0";
+      //  if(num.length()==1)return "0";
         for(i=0; i<num.length(); i++){
             while(!stck.empty() && stck.peek()>num.charAt(i) && k>0){
                     k--;
