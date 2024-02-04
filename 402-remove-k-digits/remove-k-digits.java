@@ -15,9 +15,12 @@ class Solution {
         for(;k>0;k--)stck.pop();
 
         StringBuilder result= new StringBuilder();
-        for(char c: stck)result.append(c);
-        if(stck.size()==0)result.append(0);
-      //  System.out.println(result+"res");
+        for(char c: stck){
+            if(c=='0'&& result.length()==0)continue;
+            result.append(c);
+        }
+        if(result.length()==0)result.append(0);
+    //    while(result.charAt(0)=='0' && result.length!=0)
         return (new BigInteger(result.toString())).toString();
 
 
