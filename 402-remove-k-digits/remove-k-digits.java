@@ -19,13 +19,8 @@ class Solution {
             if(c=='0'&& result.length()==0)continue;
             result.append(c);
         }
-        if(result.length()==0)result.append(0);
-    //    while(result.charAt(0)=='0' && result.length!=0)
+        if(result.length()==0)return "0";
         return result.toString();
 
-
-
-       // while(result.charAt(0)=='0' && result.length()>1)result.deleteCharAt(0);
-      //  return result.toString();
     }
 }
