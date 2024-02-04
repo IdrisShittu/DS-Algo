@@ -21,7 +21,7 @@ class Solution {
         }
         if(result.length()==0)result.append(0);
     //    while(result.charAt(0)=='0' && result.length!=0)
-        return (new BigInteger(result.toString())).toString();
+        return result.toString();
 
 
 
