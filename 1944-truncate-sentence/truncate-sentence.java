@@ -1,10 +1,16 @@
+import java.util.regex.*;
 class Solution {
     public String truncateSentence(String s, int k) {
-        int count=0;
-        for(int i=0; i<s.length(); i++){
-            if(s.charAt(i)==' ')count++;
-            if(count==k)return s.substring(0,i);
+        Pattern pattern = Pattern.compile(String.format("(\\b\\w+\\s){%d}(\\b\\w+)", k - 1));
+        Matcher matcher = pattern.matcher(s);
+     
+        if (matcher.find()) {
+            return matcher.group(0); 
+        } else {
+            return s; 
         }
-        return s;
     }
 }
+
+       
+  
