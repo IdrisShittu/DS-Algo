@@ -7,7 +7,7 @@ class Solution {
          sum+=nums[i];
          break;
         }
-        sum+= Integer.parseInt(Integer.toString(nums[i++])+Integer.toString(nums[j--]));
+        sum+= Integer.parseInt(String.format("%d%d", nums[i++], nums[j--]));
        }
        return sum;
     }
