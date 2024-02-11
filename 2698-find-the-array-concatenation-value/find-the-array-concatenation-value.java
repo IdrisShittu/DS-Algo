@@ -7,7 +7,8 @@ class Solution {
          sum+=nums[i];
          break;
         }
-        sum+= Integer.parseInt(String.format("%d%d", nums[i++], nums[j--]));
+        sum+= nums[i]*Math.pow(10,(int)Math.log10(nums[j])+1)+nums[j];
+        i++;j--;
        }
        return sum;
     }
