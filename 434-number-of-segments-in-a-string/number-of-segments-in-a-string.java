@@ -1,14 +1,16 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 class Solution {
     public int countSegments(String s) {
-        int count=0; boolean charSeen=false;
-        if(s.length()==0)return 0;
-        for(int i=0; i<s.length(); i++){
-            if(s.charAt(i)==' ' && charSeen){
-                charSeen=false;
-                count++;
-            }
-            if(s.charAt(i)!=' ')charSeen=true;
+    
+        Matcher matcher = Pattern.compile("\\S+").matcher(s);
+
+        int count = 0;
+        while (matcher.find()) {
+            count++;
         }
-        return (charSeen)?count+1:count;
+
+        return count;
     }
 }
