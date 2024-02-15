@@ -1,21 +1,37 @@
 class Solution {
     public int countSymmetricIntegers(int low, int high) {
-        String s; int count=0;
-        for(int i=low;i<=high;i++){
-            s=Integer.toString(i);
-            if(s.length()%2!=0)continue;
+        int count=0, sum, num,j;
+        Stack<Integer> myStack = new Stack<>();
 
-            int j=0,k=s.length()-1,sum1=0,sum2=0;
-            while(j<k){
-                sum1+=s.charAt(j++);
-                sum2+=s.charAt(k--);
+        for(int i=low;i<=high;i++){
+            if(i<10)continue;
+            num=i;
+          //  System.out.println("Num-"+num);
+            while(num>0){
+                myStack.push(num%10);
+                num/=10;
             }
-            if(sum1==sum2)count++;
-           /* System.out.println("i-"+i);
-            System.out.println("j-"+j);
-            System.out.println("k-"+k);
-            System.out.println("sum-"+sum);
-             System.out.println("count-"+count);*/
+
+            if(myStack.size()%2!=0)continue;
+
+            num=myStack.size();
+            sum=0;
+            j=1;
+           // System.out.println("Stack-"+myStack);
+            while(j<=num/2){
+                //System.out.println("First-"+myStack.peek());
+                sum+=myStack.pop();
+                //System.out.println("Sum-"+sum);
+                j++;
+            }
+            while(j<=num){
+               // System.out.println("Second-"+myStack.peek());
+                sum-=myStack.pop();
+               // System.out.println("Sum-"+sum);
+                j++;
+            }
+
+            if(sum==0)count++;
         }
         return count;
     }
