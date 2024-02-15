@@ -4,12 +4,10 @@ class Solution {
         for (int num : nums) {
             mp.put(num, mp.getOrDefault(num, 0) + 1);
         }
-
         int res = 0;
         for (int i : mp.values()) {
             res += i * (i - 1) / 2;
         }
-
         return res; 
     }
 }
