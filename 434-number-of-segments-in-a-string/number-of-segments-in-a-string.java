@@ -1,10 +1,14 @@
 class Solution {
     public int countSegments(String s) {
-        int count=0;
-        String str[] = s.split(" ");
-        for(String st: str){
-            if(st.length()!=0)count++;
+        int count=0; boolean charSeen=false;
+        if(s.length()==0)return 0;
+        for(int i=0; i<s.length(); i++){
+            if(s.charAt(i)==' ' && charSeen){
+                charSeen=false;
+                count++;
+            }
+            if(s.charAt(i)!=' ')charSeen=true;
         }
-        return count;
+        return (charSeen)?count+1:count;
     }
 }
