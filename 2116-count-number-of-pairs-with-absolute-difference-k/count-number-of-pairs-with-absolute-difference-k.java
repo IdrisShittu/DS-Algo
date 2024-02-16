@@ -1,13 +1,15 @@
 class Solution {
     public int countKDifference(int[] nums, int k) {
-        int count=0;
+        int[] arr = new int[101]; int res=0;
         for(int i=0; i<nums.length; i++){
-            for(int j=i+1; j<nums.length; j++){
-                if(Math.abs(nums[i]-nums[j])==k){
-                    count++;
-                }
-            }
+             if(nums[i]-k>-1 && nums[i]-k<arr.length ){
+                  res+=(arr[nums[i]-k]!=0)?arr[nums[i]-k]:0;
+             }
+              if( nums[i]+k<arr.length ){
+                 res+= (arr[nums[i]+k]!=0)?arr[nums[i]+k]:0;
+              }
+              arr[nums[i ]]++;
         }
-        return count;
+        return res;
     }
 }
