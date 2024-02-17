@@ -1,18 +1,15 @@
+import java.util.Arrays;
+import java.util.Comparator;
 class Solution {
-    public int[] sortArrayByParity(int[] nums) {
-
-        int evenPointer=0, oddPointer=nums.length-1;
+    public static int[] sortArrayByParity(int[] nums) {
+        Integer[] boxedArray = Arrays.stream(nums).boxed().toArray(Integer[]::new);
         
-        int[] res = new int[nums.length];
-
-        for(int arr:nums){
-            if(arr%2==0){
-                res[evenPointer++]=arr;
-            }else{
-                res[oddPointer--]=arr;
-            }
+        Arrays.sort(boxedArray, Comparator.comparingInt(a -> a % 2));
+        
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = boxedArray[i];
         }
 
-        return res;
+        return nums;
     }
 }
