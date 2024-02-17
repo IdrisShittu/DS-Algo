@@ -1,19 +1,7 @@
+import java.util.regex.Pattern;
 class Solution {
     public boolean detectCapitalUse(String word) {
-        int count=0;
-        for(char ch: word.toCharArray()){
-            if(Character.isUpperCase(ch))count++;
-        }
-
-        if(count==word.length()){
-            return true;
-        }else if(count==0){
-            return true;
-        }else if(count==1 && Character.isUpperCase(word.charAt(0))){
-            return true;
-        }  
-
-        return false;
-
+       String regex = "([A-Z]+|[a-z]+|[A-Z][a-z]+)";
+       return Pattern.matches(regex, word);
     }
 }
