@@ -1,8 +1,10 @@
 class Solution {
     public boolean checkIfPangram(String sentence) {
-        for(char c='a'; c<='z'; c++){
-            if(sentence.indexOf(c)<0)return false;
+        int mask = 0;
+        for (char ch : sentence.toCharArray()) {
+            int charCode = ch - 'a';
+            mask |= (1 << charCode);
         }
-        return true;
+        return mask == (1 << 26) - 1;
     }
 }
