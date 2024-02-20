@@ -1,9 +1,14 @@
 class Solution {
     public boolean threeConsecutiveOdds(int[] arr) {
-        for(int i=2; i<arr.length; i++){
-            if((arr[i]&1)==1){
-                if((arr[i-1]&1)==1 && (arr[i-2]&1)==1)return true;
-            }
+        return isKConsecutiveOdd(arr,3);
+    }
+
+    public boolean isKConsecutiveOdd(int[] arr, int k){
+        int count=0;
+        for(int num : arr){
+            if((num&1)!=1)count=0;
+            else count++;
+            if(count==k)return true;
         }
         return false;
     }
