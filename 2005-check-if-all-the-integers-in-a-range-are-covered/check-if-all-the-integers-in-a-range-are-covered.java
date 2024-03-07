@@ -1,18 +1,17 @@
 class Solution {
     public boolean isCovered(int[][] ranges, int left, int right) {
+        boolean seen=false;
         Set<Integer> s = new HashSet();
         for(int i=left; i<=right; i++){
-            s.add(i);
-        }
-
-        for(int[] range : ranges){
-            for(int i=range[0]; i<=range[range.length-1]; i++){
-                s.remove(i);
-                if(s.size()==0)return true;
+            for(int[] range : ranges){
+                if(i>=range[0] && i<=range[1]){
+                    seen=true;
+                    break;
+                }
             }
+            if(seen==false)return false;
+            seen=false;
         }
-
-        return false;
-        
+        return true;
     }
 }
