@@ -8,10 +8,10 @@ class Solution {
         for(int[] range : ranges){
             for(int i=range[0]; i<=range[range.length-1]; i++){
                 s.remove(i);
+                if(s.size()==0)return true;
             }
         }
 
-        if(s.size()==0) return true;
         return false;
         
     }
