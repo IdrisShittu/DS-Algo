@@ -1,12 +1,13 @@
 class Solution {
     public int percentageLetter(String s, char letter) {
-        int count=0;
+       return getPercentage(s,letter); 
+    }
+
+    public int getPercentage(String s, char letter){
+        int[] mp = new int[26];
         for(char ch : s.toCharArray()){
-            if(ch==letter)count++;
-             System.out.println("ch "+ ch);
+            mp[ch-'a']+=1;
         }
-        System.out.println("Out "+ count/s.length());
-        return (count*100)/s.length();
-        
+        return (mp[letter-'a']*100)/s.length();
     }
 }
