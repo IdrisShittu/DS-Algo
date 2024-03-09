@@ -1,16 +1,15 @@
 class Solution {
     public boolean isCovered(int[][] ranges, int left, int right) {
-        boolean seen=false;
-        for(int i=left; i<=right; i++){
-            for(int[] range : ranges){
-                if(i>=range[0] && i<=range[1]){
-                    seen=true;
-                    break;
-                }
+        Arrays.sort(ranges, (a,b)->a[0]-b[0]);
+        Stack<int[]> merged = new Stack<>();
+        for(int[] range : ranges){
+            if( merged.isEmpty() || merged.peek()[1]+1 < range[0]){
+                merged.push(range);
+            }else{
+                 merged.peek()[1]=Math.max(merged.peek()[1], range[1]);
             }
-            if(seen==false)return false;
-            seen=false;
         }
-        return true;
+        return merged.stream().anyMatch(range->left>=range[0] && right<=range[1]);
+ 
     }
 }
