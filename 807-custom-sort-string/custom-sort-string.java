@@ -13,24 +13,19 @@ class Solution {
         for(char c: order.toCharArray()){
             if(st2.contains(c)){
                  st.add(c);
-                 if(count[c-'a']>=1){
-                     while(count[c-'a']>0){
-                          result.append(c);
-                          count[c-'a']--;
-                     }
+                 while(count[c-'a']>0){
+                    result.append(c);
+                    count[c-'a']--;
                  }
-             
             }
         }
 
         for(char c: s.toCharArray()){
             if(!st.contains(c)){
-                if(count[c-'a']>=1){
-                     while(count[c-'a']>0){
-                          result.append(c);
-                          count[c-'a']--;
-                     }
-                 }
+                while(count[c-'a']>0){
+                    result.append(c);
+                    count[c-'a']--;
+                }
             }
         }
         return result.toString(); 
