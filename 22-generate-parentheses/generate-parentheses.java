@@ -12,7 +12,7 @@ class Solution {
             return;
         }
         
-        if(open>n || close>n) return;
+        if(open>n || close>open ) return;
       //  System.out.println(temp);
         generate(n, result, temp+"(", open+1, close);
         if(close<open) generate(n, result, temp+")", open, close+1);
