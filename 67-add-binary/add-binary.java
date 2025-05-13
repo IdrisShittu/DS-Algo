@@ -6,10 +6,7 @@ class Solution {
 
         while(i>=0 && j>=0){
             int val=a.charAt(i)-'0' + b.charAt(j) -'0' +carry;
-            System.out.println("val "+val );
-                 System.out.println("valmod "+val%2 );
             result.append(val%2);
-             System.out.println("car "+carry );
             carry=val/2;
             i--; j--;
         }
@@ -17,17 +14,12 @@ class Solution {
         while(i>=0 || j>=0){
             if(i>=0){
                 int val=a.charAt(i)-'0'+carry;
-                System.out.println("val "+val );
-                 System.out.println("valmod "+val%2 );
                 result.append(val%2);
-                System.out.println("car "+carry );
                 carry=val/2;
                 i--;
             }
             if(j>=0){
                 int val=b.charAt(j)-'0'+carry;
-                 System.out.println("val "+val );
-                 System.out.println("valmod "+val%2 );
                 result.append(val%2);
                  System.out.println("car "+carry );
                 carry=val/2;
