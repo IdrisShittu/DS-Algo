@@ -4,21 +4,22 @@ class Solution {
         int i=a.length()-1, j=b.length()-1, carry=0;
         StringBuilder result = new StringBuilder();
 
-        while(i>=0 && j>=0){
-            int val=a.charAt(i)-'0' + b.charAt(j) -'0' +carry;
-            result.append(val%2);
-            carry=val/2;
-            i--; j--;
-        }
-
         while(i>=0 || j>=0){
-            if(i>=0){
+
+            if(i>=0 && j>=0){
+                int val=a.charAt(i)-'0' + b.charAt(j) -'0' +carry;
+                result.append(val%2);
+                carry=val/2;
+                i--; j--;
+            }
+
+            else if(i>=0){
                 int val=a.charAt(i)-'0'+carry;
                 result.append(val%2);
                 carry=val/2;
                 i--;
             }
-            if(j>=0){
+            else if(j>=0){
                 int val=b.charAt(j)-'0'+carry;
                 result.append(val%2);
                  System.out.println("car "+carry );
